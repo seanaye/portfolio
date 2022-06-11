@@ -1,0 +1,22 @@
+{
+  "name": "@seanaye/portfolio",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@seanaye/game-of-life": "workspace:*"
+  },
+  "devDependencies": {
+    "@astrojs/solid-js": "^0.1.4",
+    "@astrojs/tailwind": "^0.2.1",
+    "@babel/core": "^7.18.2",
+    "astro": "^1.0.0-beta.40",
+    "solid-js": "^1.4.3",
+    "tsconfig": "workspace:*"
+  }
+}

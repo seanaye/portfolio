@@ -1,0 +1,19 @@
+{
+  "name": "@seanaye/game-of-life",
+  "version": "0.1.0",
+  "collaborators": [
+    "Sean Aye <hello@seanaye.ca>"
+  ],
+  "files": [
+    "pkg/wasm_bg.wasm",
+    "pkg/wasm.js",
+    "pkg/wasm_bg.js",
+    "pkg/wasm.d.ts"
+  ],
+  "module": "pkg/wasm.js",
+  "types": "pkg/wasm.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "wasm-pack build --target web"
+  }
+}
