@@ -1,6 +1,6 @@
-import withRollup from "rollup-preset-solid";
+import withSolid from "rollup-preset-solid";
 
-export default withRollup([
+export default withSolid([
   { input: "src/index.tsx", mappingName: "browser" },
   {
     input: "src/index.tsx",
