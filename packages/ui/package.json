@@ -1,0 +1,35 @@
+{
+  "name": "@seanaye/ui",
+  "version": "1.0.0",
+  "description": "Package for ui elements",
+  "main": "dist/cjs/ui.js",
+  "module": "dist/esm/ui.js",
+  "types": "dist/types/ui.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "solid": "./dist/browser/index.jsx",
+      "node": "./dist/server/index.module.js",
+      "default": "./dist/browser/index.module.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "author": "seanaye",
+  "license": "ISC",
+  "dependencies": {
+    "@seanaye/game-of-life": "workspace:*"
+  },
+  "devDependencies": {
+    "rollup": "^2.75.6",
+    "rollup-preset-solid": "^1.4.0",
+    "solid-js": "^1.4.3",
+    "tsconfig": "workspace:*",
+    "vite-plugin-solid": "^2.2.6"
+  }
+}

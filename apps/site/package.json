@@ -9,7 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@seanaye/game-of-life": "workspace:*",
+    "@seanaye/ui": "workspace:*",
     "@astrojs/deno": "^0.1.5",
     "@astrojs/solid-js": "^0.1.4",
     "@astrojs/tailwind": "^0.2.1",

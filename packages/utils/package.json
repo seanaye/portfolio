@@ -1,0 +1,12 @@
+{
+  "name": "@seanaye/utils",
+  "version": "1.0.0",
+  "description": "Package for utility functions",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "vitest"
+  },
+  "author": "seanaye",
+  "license": "ISC"
+}
