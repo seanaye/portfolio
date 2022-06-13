@@ -9,13 +9,16 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@seanaye/ui": "workspace:*",
     "@astrojs/deno": "^0.1.5",
     "@astrojs/solid-js": "^0.1.4",
     "@astrojs/tailwind": "^0.2.1",
     "@babel/core": "^7.18.2",
+    "@seanaye/ui": "workspace:*",
     "astro": "^1.0.0-beta.40",
     "solid-js": "^1.4.3",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "vite": "^2.9.12",
+    "vite-plugin-windicss": "^1.8.4",
+    "windicss": "^3.5.4"
   }
 }

@@ -1,10 +1,10 @@
 {
-  "name": "@seanaye/ui",
+  "name": "@seanaye/hooks",
   "version": "1.0.0",
-  "description": "Package for ui elements",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "description": "Package for solid-js hooks",
+  "main": "dist/server/index.js",
+  "module": "dist/browser/index.js",
+  "types": "dist/browser/index.d.ts",
   "files": [
     "dist"
   ],
@@ -24,17 +24,13 @@
   "author": "seanaye",
   "license": "ISC",
   "dependencies": {
-    "@seanaye/game-of-life": "workspace:*",
-    "@seanaye/hooks": "workspace:*"
+    "@seanaye/utils": "workspace:*"
   },
   "devDependencies": {
     "rollup": "^2.75.6",
-    "rollup-plugin-windicss": "^1.8.4",
     "rollup-preset-solid": "^1.4.0",
     "solid-js": "^1.4.3",
     "tsconfig": "workspace:*",
-    "vite": "^2.9.12",
-    "vite-plugin-solid": "^2.2.6",
-    "vite-plugin-windicss": "^1.8.4"
+    "vite-plugin-solid": "^2.2.6"
   }
 }
