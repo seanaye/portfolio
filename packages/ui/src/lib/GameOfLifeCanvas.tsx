@@ -11,6 +11,8 @@ import { useMeasureWindow } from "@seanaye/hooks";
 
 const pxPerCell = 8;
 
+const msPerFrame = Math.floor((1 / 60) * 1000);
+
 /**
  * Universe signal which frees the prev if it exists
  */
@@ -61,7 +63,8 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
   const [modSig, setMod] = createSignal<null | InitOutput>(null);
 
   // holds the ref to the loopId for cleanup
-  let loopId: number | null = null;
+  let timerId: number | null = null;
+  let frameId: number | null = null;
   function setupUniverse() {
     const mod = modSig();
     if (!mod) return;
@@ -100,16 +103,21 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
       ctx.stroke();
     }
 
-    if (loopId) {
-      cancelAnimationFrame(loopId);
+    if (timerId) {
+      clearInterval(timerId);
+    }
+    if (frameId) {
+      cancelAnimationFrame(frameId);
     }
 
     function renderLoop() {
       draw(ctx);
-      loopId = requestAnimationFrame(renderLoop);
+      timerId = setTimeout(() => {
+        frameId = requestAnimationFrame(renderLoop);
+      }, msPerFrame);
     }
 
-    loopId = requestAnimationFrame(renderLoop);
+    frameId = requestAnimationFrame(renderLoop);
   }
 
   onMount(async () => {
@@ -123,9 +131,12 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
     if (cur) {
       cur.free();
     }
+    if (timerId) {
+      clearTimeout(timerId);
+    }
 
-    if (loopId) {
-      cancelAnimationFrame(loopId);
+    if (frameId) {
+      cancelAnimationFrame(frameId);
     }
   });
 
