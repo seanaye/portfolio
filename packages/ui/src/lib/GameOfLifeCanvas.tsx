@@ -51,9 +51,7 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
     const h = height();
     if (!uni || !prev) return { w, h };
 
-    console.log("check width");
     if (prev.h !== h || prev.w !== w) {
-      console.log("redo setup");
       setupUniverse();
     }
 
@@ -132,7 +130,6 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
   });
 
   function onPointerMove(event: PointerEvent) {
-    console.log(event);
     const cur = universe();
     if (!cur) return;
 
@@ -144,16 +141,16 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
 
   return (
     <>
-      {/* <div */}
-      {/*   class="absolute w-screen h-screen top-0 left-0 -z-50" */}
-      {/*   style={{ "background-color": props.colours[0] }} */}
-      {/* /> */}
+      <div
+        class="absolute w-screen h-screen top-0 left-0"
+        style={{ "background-color": props.colours[0] }}
+      />
       <canvas
-        class="absolute w-screen h-screen top-0 left-0 -z-50"
+        class="absolute w-screen h-screen top-0 left-0"
         width={fullWidth()}
         height={fullHeight()}
-        onPointerMove={onPointerMove}
         ref={canvasRef}
+        onPointerMove={onPointerMove}
       />
     </>
   );
