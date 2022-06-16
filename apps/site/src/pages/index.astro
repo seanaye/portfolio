@@ -1,12 +1,17 @@
 ---
   import 'virtual:windi.css';
   import { GameOfLifeCanvas, GithubIcon, LinkedinIcon, TwitterIcon } from '@seanaye/ui'
+  import { truncateString } from "@seanaye/utils"
   import avatarImg from "./avatar.jpeg"
   const colours = ["#282728", "#292929", "#2B2B2B", "#2C2D2D", "#2E2F2F", "#2F3131", "#313333", "#323535", "#343837", "#353A39", "#373C3A", "#383E3C", "#3A403E", "#3C4240", "#3D4442", "#3F4744", "#404946", "#424B48", "#434D4A", "#454F4C", "#46514D", "#48534F", "#495551", "#4B5853", "#4D5A55", "#4E5C57", "#505E59", "#51605B", "#53625D", "#54645F", "#566760", "#576962", "#596B64", "#5A6D66", "#5C6F68", "#5D716A", "#5F736C", "#61766E", "#627870", "#647A72", "#657C73", "#677E75", "#688077", "#6A8279", "#6B847B", "#6D877D", "#6E897F", "#708B81", "#728D83", "#738F85", "#759186", "#769388", "#78968A", "#79988C", "#7B9A8E", "#7C9C90", "#7E9E92", "#7FA094", "#81A296", "#83A598"]
 
   const twitterUrl = new URL(`https://twitter.com/seanay3`)
   const githubUrl = new URL(`https://github.com/seanaye`)
   const linkedinUrl = new URL(`https://www.linkedin.com/in/sean-aye-5a1036114/`)
+
+  const ogDescriptionLimit = 160;
+  const description = `Hi! My name is Sean Aye, I'm a 🇨🇦 software engineer working on the future of document
+            drafting and reviewing. In my free time I enjoy taking photos, making music, and travelling.`
 ---
 <html lang="en">
 
@@ -16,9 +21,9 @@
   <title>Web App Design for Creators, Restaurants, Small Businesses</title>
   <meta property="og:title" content="Web App Design by Sean Aye" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="./android-chrome-512x512.png" />
-  <meta property="og:url" content="https://seanaye.ca" />
-</head>
+  <meta property="og:image" content="/android-chrome-512x512.png" />
+  <meta property="og:url" content={Astro.request.url} />
+  <meta property="og:description" content={truncateString({ str: description, limit: 160, suffix: "..." })} </head>
 
 <body>
   <div class="w-screen h-screen flex justify-center items-center absolute">
@@ -31,8 +36,7 @@
         </div>
         <div class="prose font-mono">
           <h4 class="text-lg font-bold">About Me</h4>
-          <p class="mt-1">Hi! My name is Sean Aye, I'm a 🇨🇦 software engineer working on the future of document
-            drafting and reviewing. In my free time I enjoy taking photos, making music, and travelling.</p>
+          <p class="mt-1">{description}</p>
 
           <div class="flex flex-row mt-2 gap-4">
             <a href={githubUrl} target="_blank">
@@ -52,3 +56,13 @@
     </div>
   </div>
 </body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body>
+</body></body></body></body></body></body>

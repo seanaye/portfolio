@@ -11,4 +11,5 @@ export default defineConfig({
   vite: {
     plugins: [WindiCSS()],
   },
+  site: "https://seanaye.ca",
 });
