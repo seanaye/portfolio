@@ -9,8 +9,8 @@ import {
 import init, { Cell, DxUniverse, InitOutput } from "@seanaye/game-of-life";
 import { useDevicePixelRatio, useMeasureWindow } from "@seanaye/hooks";
 
-const pxPerCell = 32;
-const halfPxPerCell = 8
+const pxPerCell = 16;
+const halfPxPerCell = 6
 const fullCircle = 2 * Math.PI
 
 const msPerFrame = Math.floor((1 / 60) * 1000);
@@ -98,8 +98,8 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
           const idx = row * width() + col;
           ctx.fillStyle = mapTo(cells[idx]);
 
-          const x = col * pxPerCell
-          const y = row * pxPerCell
+          const x = col * pxPerCell + 1
+          const y = row * pxPerCell + 1
 
           ctx.beginPath();
           // ctx.fillRect(
