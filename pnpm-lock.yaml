@@ -87,6 +87,7 @@ importers:
       vite: ^2.9.12
       vite-plugin-solid: ^2.2.6
       vite-plugin-windicss: ^1.8.4
+      windicss: ^3.5.4
     dependencies:
       '@seanaye/game-of-life': link:../game-of-life
       '@seanaye/hooks': link:../hooks
@@ -99,6 +100,7 @@ importers:
       vite: 2.9.12
       vite-plugin-solid: 2.2.6
       vite-plugin-windicss: 1.8.4_vite@2.9.12
+      windicss: 3.5.4
 
   packages/utils:
     specifiers: {}

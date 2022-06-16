@@ -7,9 +7,11 @@ import {
   onMount,
 } from "solid-js";
 import init, { Cell, DxUniverse, InitOutput } from "@seanaye/game-of-life";
-import { useMeasureWindow } from "@seanaye/hooks";
+import { useDevicePixelRatio, useMeasureWindow } from "@seanaye/hooks";
 
-const pxPerCell = 8;
+const pxPerCell = 32;
+const halfPxPerCell = 8
+const fullCircle = 2 * Math.PI
 
 const msPerFrame = Math.floor((1 / 60) * 1000);
 
@@ -47,6 +49,7 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
     return cur[Math.min(num, cur.length - 1)];
   }
 
+  // handle resizing the universe when the window size changes
   createEffect((prev?: { w: number; h: number }) => {
     const uni = universe();
     const w = width();
@@ -60,6 +63,9 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
     return { w, h };
   });
 
+  const devicePixelRatio = useDevicePixelRatio()
+
+  // hold state of wasm mod
   const [modSig, setMod] = createSignal<null | InitOutput>(null);
 
   // holds the ref to the loopId for cleanup
@@ -70,6 +76,8 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
     if (!mod) return;
     setUniverse(DxUniverse.new(width(), height()));
     const ctx = canvasRef.getContext("2d");
+    const ratio = devicePixelRatio()
+    ctx.scale(ratio, ratio)
 
     function draw(ctx: CanvasRenderingContext2D) {
       const cur = universe();
@@ -84,23 +92,28 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
         width() * height()
       );
 
-      ctx.beginPath();
 
       for (let row = 0; row < height(); row += 1) {
         for (let col = 0; col < width(); col += 1) {
           const idx = row * width() + col;
           ctx.fillStyle = mapTo(cells[idx]);
 
-          ctx.fillRect(
-            col * pxPerCell + 1,
-            row * pxPerCell + 1,
-            pxPerCell,
-            pxPerCell
-          );
+          const x = col * pxPerCell
+          const y = row * pxPerCell
+
+          ctx.beginPath();
+          // ctx.fillRect(
+          //   col * pxPerCell + 1,
+          //   row * pxPerCell + 1,
+          //   pxPerCell,
+          //   pxPerCell
+          // );
+          ctx.arc(x + halfPxPerCell, y + halfPxPerCell, halfPxPerCell, 0, fullCircle)
+          ctx.fill()
         }
       }
 
-      ctx.stroke();
+      // ctx.stroke();
     }
 
     if (timerId) {
@@ -158,8 +171,8 @@ export const GameOfLifeCanvas: Component<{ colours: Array<string> }> = (
       />
       <canvas
         class="absolute w-screen h-screen top-0 left-0"
-        width={fullWidth()}
-        height={fullHeight()}
+        width={fullWidth() * devicePixelRatio()}
+        height={fullHeight() * devicePixelRatio()}
         ref={canvasRef}
         onPointerMove={onPointerMove}
       />

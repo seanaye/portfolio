@@ -2,21 +2,9 @@
   "name": "@seanaye/ui",
   "version": "1.0.0",
   "description": "Package for ui elements",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "solid": "./dist/browser/index.jsx",
-      "node": "./dist/server/index.module.js",
-      "default": "./dist/browser/index.module.js"
-    }
-  },
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
   "scripts": {
-    "build": "rollup -c",
     "dev": "vite",
     "preview": "vite preview",
     "test": "vitest"
@@ -35,6 +23,7 @@
     "tsconfig": "workspace:*",
     "vite": "^2.9.12",
     "vite-plugin-solid": "^2.2.6",
-    "vite-plugin-windicss": "^1.8.4"
+    "vite-plugin-windicss": "^1.8.4",
+    "windicss": "^3.5.4"
   }
 }

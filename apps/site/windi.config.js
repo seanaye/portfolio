@@ -1,4 +1,7 @@
 import { defineConfig } from "windicss/helpers";
+import typography from "windicss/plugin/typography";
+
+const fileTypes = `{vue,html,jsx,tsx,astro}`;
 
 export default defineConfig({
   darkMode: false, // or 'media' or 'class'
@@ -8,8 +11,15 @@ export default defineConfig({
   theme: {
     extend: {},
   },
+  plugins: [
+    typography,
+    // ...
+  ],
   extract: {
-    include: ["./src/**/*.{vue,html,jsx,tsx,astro}"],
-    exclude: ["node_modules", ".git"],
+    include: [
+      `./src/**/*.${fileTypes}`,
+      `./node_modules/@seanaye/**/*.${fileTypes}`,
+    ],
+    exclude: [".git"],
   },
 });

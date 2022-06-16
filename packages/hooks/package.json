@@ -2,21 +2,9 @@
   "name": "@seanaye/hooks",
   "version": "1.0.0",
   "description": "Package for solid-js hooks",
-  "main": "dist/server/index.js",
-  "module": "dist/browser/index.js",
-  "types": "dist/browser/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "solid": "./dist/browser/index.jsx",
-      "node": "./dist/server/index.module.js",
-      "default": "./dist/browser/index.module.js"
-    }
-  },
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
   "scripts": {
-    "build": "rollup -c",
     "dev": "vite",
     "preview": "vite preview",
     "test": "vitest"
