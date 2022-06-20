@@ -18,7 +18,7 @@
 
   const shortDesc = truncateString({ str: description, limit: 160, suffix: "..." })
 
-  const iconStyle = "text-gray-200 hover:text-blue-500 transition-all duration-300"
+  const iconStyle = "text-gray-900 hover:text-blue-500 transition-all duration-300"
 ---
 <html lang="en">
 
@@ -40,17 +40,19 @@
       <slot />
     </div>
     <Header class="justify-end h-16 items-center px-6">
-      <a href={githubUrl} target="_blank">
-        <GithubIcon class={iconStyle } />
-      </a>
-      <a href={twitterUrl} target="_blank">
-        <TwitterIcon class={iconStyle} />
-      </a>
-      <a href={linkedinUrl} target="_blank">
-        <LinkedinIcon class={iconStyle} />
-      </a>
+      <div class="flex flex-row bg-zinc-200 shadow-lg shadow-slate-900 rounded-lg gap-4 px-4 py-2">
+        <a href={githubUrl} target="_blank">
+          <GithubIcon class={iconStyle } />
+        </a>
+        <a href={twitterUrl} target="_blank">
+          <TwitterIcon class={iconStyle} />
+        </a>
+        <a href={linkedinUrl} target="_blank">
+          <LinkedinIcon class={iconStyle} />
+        </a>
+      </div>
     </Header>
   </div>
 </body>
 
-</html>
+</html></html>
