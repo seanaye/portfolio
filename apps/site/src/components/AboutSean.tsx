@@ -17,6 +17,7 @@ export function AboutSean(props: {
           <img
             class="h-32 w-32 border border-gray-300 text-gray-300 object-contain rounded-full mx-auto"
             src={props.avatarImg}
+            alt="Headshot of Sean Aye"
           />
         </div>
         <div class="font-mono">
